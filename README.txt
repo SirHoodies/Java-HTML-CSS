@@ -29,14 +29,14 @@ USE SPACING ITS EASIER TO READ
 		the index starts counting at 0 EX: "I like cheese".indexOf("I");
 										0
 "10"+10 will show 1010 but 10*"10" will show 100
-	|				                    |
-	|				                    |
-	This part will assume that  |
+	|				|
+	|				|
+	This part will assume that  	|
 	you meant for both peices 	|
 	of data to be strings and 	|
 	will put them together and 	|
-	give you the result 1010	  |
-					                    |
+	give you the result 1010	|
+					|
 					This part will assume that you meant for the string "10" to actually be the number 10
 					java does this because there is no way to multiply two strings together
 
@@ -196,15 +196,205 @@ ________________________________________________________________________________
 
 -------------------------------------------------------------------HTML--------------------------------------------------------------------------------
 
+HTML stands for Hypertext Markup Language
+HTML forms the skeleton that the text, pictures, and javascript in web pages to attach to
+
 <h1> and </h1> (this of it as header 1) is called a tag 
 and this tag means that whatever is inbetween themcis the largest and most important header on the page
 	EX:<h1>I love bubbles!</h1>
 		this will put "I love bubbles!" as the biggest and boldest thing on the webpage
-<p> and </P> is like saying paragraph.
+<p> and </p> is like saying paragraph.
+
+tags are made up of keywords inside of angle brackets "< and >"
+tags are made up of two basic types: the begining tag "<p>" and the ending tag "</p>"
+
+tags are easy to use, just put them before and after a body of text
+	EX: <p>According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. 	The bee, of course, flies anyway because bees don't care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, 	   black and yellow!</p> 
+					(this is the begining of the bee movie)
+
+HTML has more tags such as "<img>" for an image, "<audio>" for an audio, "<video>" for a video clip, "<header>" for the top of a webpage, and "<footer>" for the bottom of a web page.
+
+______________________________________________________________________________
+<html>
+  <head>
+    <title> My Grocery List</title>	//"<title>" is that displays at the top of the browser window ot in your browsers tab when youre on a webpage
+  </head>
+  <body>			// "<body>" just tells html that whatever is inside is the body
+    <h1> Things I Need</h1>
+      <ol>			// "<ol>" i makes an indent in the text (ol stands for ordered list)
+        <li>Celery</li>   	// "<li>" makes a list with bullet points
+        <li>Carrots</li>	// when you have a "<li>" inside of an "<ol>" it gives you an indented numbered list
+        <li>Juice</li>
+      </ol>
+  </body>
+</html>
+_____________________________________________________________________________
+
+These lines of code make a grocery list
+The order of the tags must be in order of which they came (FILO which stands for First In, Last Out)
+notice how the "<html>" is at the very beginings and the very end of the code
+same with "<head>". its the second to first and the second to last tag in the code.
+
+-------<html> ,<body> ,<head> should be in every web page------
+
+_____________________________________________________________________________________
+<html>
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <h1>
+    this is h1
+    </h1>
+    <h2>
+    this is h2
+    </h2>
+    <h3>
+    this is h3
+    </h3>
+    <h4>
+    this is h4
+    </h4>
+    <h5>
+    this is h5
+    </h5>
+    <h6>
+    this is h6
+    </h6>
+    <em>this is an emphasis</em> 	//"<em>" gives an emphasis onto text (italics)
+  </body>
+</html> 			//these are all the different sizes if headings (h1-6)
+______________________________________________________________________________________
+
+_______________________________________________________________________________________
+<html>
+  <head>
+    <title>HTML Template</title>
+  </head>
+  <body>
+    <h1>
+    this is h1
+    </h1>
+    <h2>
+    this is h2
+    </h2>
+    <h3>
+    this is h3
+    </h3>
+    <h4>
+    this is h4
+    </h4>
+    <div>
+    this is a division
+    </div>
+    <h5>
+    this is h5
+    </h5>
+    <h6>
+    this is h6
+    </h6>
+    <em>this is an emphasis</em>
+     <strong>this is strong</strong>
+     <a>this is a link</a>
+     <ul>
+        <li>this is an unordered list (bulletpoints)</li>
+     </ul>
+     <hr>
+  </body>
+</html>
+_____________________________________________________________________
+
+<html>
+  <head>
+    <title>Fat boys only UwU</title>
+  </head>
+  <body>
+    <h1 id ="myName">Jayden</h1>			//this is called an id attribute. Think of it as a variable but for HTML. You asign a value to the id. in this 
+    <hr>						  in this case, that value is my name, Jayden. We can late edit this value with javascript.
+    <p id="aboutMe"><em>Im a fat little boy</em></p>
+    <hr>
+    <h2>
+    Things Fat little boys do
+    </h2>
+    <ul>
+      <li id="firstThing">Eat</li>
+      <li id="secondThing">Sleep</li>
+      <li id="thirdThing">repeat</li>
+    </ul>
+  </body>
+</html>
+____________________________________________________________________
+
+document.getElementById("id-value") 
+this is how you fetch (select) an element in java
+lets say you want to find your name in HTML with java script, write:
+								document.getElementById("myName")
+
+a property describes an aspect of an object. its something that an object has as opposed to something that an object does.
+
+to change what an element says/ has inside, you use .innerHTML
+lets say you have an element: 
+				<p id="myParagraph">This is <em>my</em> paragraph.</p>        // this assigns an id value to "myParagraph" being the sentence inside
+
+to change the value of its .innerHTML you would write this in java:
+								   document.getElementById("myParagraph").innerHTML = "This is <em>your</em> paragraph.</p>";
+								   	//this retrives the value of "myParagraph" and goes into the .innerHTML and you simply just
+									type what you want it to have instead. You change the value of the element.
+		
+_____________________________HTML___________________________________________
+<html>
+  <head>
+    <title>Fat boys only UwU</title>
+  </head>
+  <body>
+    <h1 id ="myName">Jayden</h1>			
+    <hr>						 
+    <p id="aboutMe"><em>Im a fat little boy</em></p>
+    <hr>
+    <h2>
+    Things Fat little boys do
+    </h2>
+    <ul>
+      <li id="firstThing">Eat</li>    //makes the listed item have the id of "firstThing"
+      <li id="secondThing">Sleep</li>
+      <li id="thirdThing">repeat</li>
+    </ul>
+  </body>
+</html>
+
+<button id="changeList" type="button">    //makes a button with the id "changeList"
+  Change Your List    			//gives the button a visible name
+</button>
+_______________________________________________________________________________
+__________________________________JAVA_________________________________________
+var item1;    //makes the variable item1
+var item2;
+var item3;
+
+document.getElementById("changeList").onclick = newList; 
+//changeList is the button and .onclick tells java to do something if you click the button (if statement kinda)
+//if the button is pressed, run the function newList (which is defined below)
+
+//we use a meathod called .getElementById to locate the element in the document that has an id attribute set to changeList (which is the value of the button). When java has found the button, we use the onclick event handler to tell it to watch for clicks on that button
+
+function newList(){
+item1 = prompt("Enter a new first thing: ");  //gives item1 a new thing to do (whis is to ask the prompt) and assigns it that value
+item2 = prompt("Enter a new second thing: ");
+item3 = prompt("Enter a new third thing: ");
+updateList();          //once the user has answered all 3 prompts, it runs the funstion updateList
+}
+
+function updateList(){
+document.getElementById("firstThing").innerHTML = item1;	//changes the .innerHTML of the original element
+document.getElementById("secondThing").innerHTML = item2;
+document.getElementById("thirdThing").innerHTML = item3;
+}
+//the update funtion finds each of the list items using their id attribute values. It then uses a meathod calles .innerHTML to change the value that is between the starting and ending tags of the list item to the values that the user entered by the user
 
 
 
 
-													
+	
+
 
 
