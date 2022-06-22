@@ -171,6 +171,53 @@ ________________________________________________________________________________
 
 jsfiddle.net is where you can input java, html, and css all in one window
 
+whenever something happens in a webpage it is called an event. (Clicking, Dragging, Dropping, hovering, selecting text, or pressing a key)
+use .addEventListener to tell programs what to do when an avent happens
+
+.addEventListener("click") // user clicks the mouse
+.addEventListener("submit") // a form is being submitted
+.addEventListener("drag") // an element is being dragged
+.addEventListener("drop") // an element being dropped after being dragged
+.addEventListener("copy") //the user has copied content
+.addEventListener("paste") //the user has pasted content
+.addEventListener("mouseover") //the mouse passed over an element
+.addEventListener("load") //the page loads
+
+EX: target.addEventListener("click", listener)
+
+the element that java will listen for is called the event target
+
+the listener is the third part of an .addEventListener statement is the actual listener. This is the object that should be notified when the event happens.
+Normal format: target.addEventListener("event", listener);
+EX: rightEye.addEventListener("click", moveUpDown);
+
+
+
+_________MOVES ROBOT EYE UP AND DOWN WHEN PRESSED_______________
+
+rightEye.addEventListener("click", moveUpDown);
+
+var rightEye = document.getElementById("rightEye");
+rightEye.addEventListener("click", moveupDown);
+
+function moveUpDown(e) {
+	var robotPart = e.target;	// this statement uses the event object (that comes automatically from the .addEventListener meathod) to find out what part of 
+					the robot (what element) was clicked on. It stores the information about that element in a new variable called robotPart.
+  var top = 0;				//this top variable is what well use to position the eye in each frame of the animation	
+  
+  var id = setInterval(frame, 10)	//the setInterval command will run the function listed first in the parenthisis and will do it on a schedule determined by the
+  					number in the parentheses
+function frame() {			// making a new function that will handle the task of creating each new animation frame
+  	robotPart.style.top = top + '%';	//here we set the top value of top to the value of our top variable and add % at the end for the element that was
+						clicked. so when you first click on the eye, top will be set to 0 percent, which will put it at the very top (head)
+    top++;					//this line increases the value of top 1 using a thinf called the increment operator	
+    if (top === 50){				// here we check if the final frame of animation was reached by seeing if top is equal to 50
+    	clearInterval(id);			// the clearInterval statement ends the animation
+    }
+  }				//then clean up and close all of the brackets that we opened
+}
+_________________________________________________________________
+
 
 -------------------------------------------------------------CSS--------------------------------------------------------------------------------------
 css is used for the apperance of a web page
@@ -178,7 +225,7 @@ css is used for the apperance of a web page
 ________________________________________________________________________________________________________________
 #o { width: 600px; height: 400px; position: relative; margin-left:auto; margin-					|
 right:auto;}													| 
-.bubble { border: 2px solid #FFFFFF; display: block; position: absolute; border-radius: 20px; -webkit-border	| 
+.bubble { border: 2px solid #FFFFFFF; display: block; position: absolute; border-radius: 20px; -webkit-border	| 
 -radius: 20px; -moz-border-radius: 20px; }									|
 body {background-color:#2154B2;}										| 
 ________________________________________________________________________________________________________________| 
@@ -193,7 +240,121 @@ ________________________________________________________________________________
 		It uses 3 set of 2 values (FF FF FF) which tels the browser how much red green and blue to put in
 			(the range is from 00 to FF)
 		"00" is Black and "FF" is white
+		
+_____________________________
+body {				
+    font-family: Arial;
+}
+_____________________________
+these three lines for whats called a CSS rule which consist of two main components:
+	Selector: The selector indicates what element or elements the CSS rule applies to. In the example, the selector is "body"
+	
+	Declaration block:The declaration block contains on or more CSS declarations, which indicate how to style the selected element or elements. In this example, we have just on declaration "front-family: Arial;" (this just changes the font of the text)
+	
+	
+	
+	
+------------HTML-------------------
+<div id="robot">
+<div id="head">
+    <div class="eye" id="righteye"></div>
+    <div class="eye" id="lefteye"></div>
+    <div id="nose"></div>
+    <div id="mouth"></div>
+</div>
+<div class="arm" id="rightarm"></div>
+<div id="body"><p>I &lt;3 JS!</p></div>
+<div class="arm" id="leftarm"></div>
+</div>
 
+
+-------CSS---------
+body {				//the first two are called element selectors. They select HTML elements using the name of the element
+    font-family: Courier; 
+}
+p {
+    font-size: 3em;
+}
+.eye {				//this is a class selector. it starts with a period meaning that it is selecting all of the elements that have class = "eye" 
+    background-color:blue;	//you can also use a hexadecimal notation for the color (#8fc0e6) 
+    width:20%;
+    height:20%;
+    border-radius: 50%;
+}
+.arm {
+    background-color: #cacaca;
+    position: absolute;
+    top: 35%;
+    width: 5%;
+    height: 40%;
+}
+
+#head {				//ID selectors start with a hash symbol and select elements based on the value of the element's ID attribute. The robots have 
+    width:30%;			different eye attributes (position). This is why both eyes are assigned the same class but different elements. the class allows
+    height:30%;			you to change the eye color, width, radius, and height for both of them but the elements themselves have different positions
+    border-radius: 15%;
+    background-color: #dadada;
+    position: absolute;
+    left: 33%;
+    top: 5%;
+}
+#righteye {			//CSS Declerations go inside decleration blocks following CSS selectors. Declerations are made up of two parts:
+    position: absolute;			Property: The property of a decleration tells what should be modified. For example, you can change the color width of position 
+    left: 20%;				of an element. The property must be followed by a colon(:)
+    top: 20%;
+}					Value: The value tells how the property should be changed
+#lefteye {
+    position: absolute;			each decleration must end in a semicolon(;)
+    left: 60%;
+    top: 20%;
+}
+#nose {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+}
+#mouth {
+    position: absolute;
+    width: 65%;
+    height: 15%;
+    left: 20%;
+    top: 70%;
+    background-color: red;
+}
+#body {
+    position: absolute;
+    left: 25%;
+    top: 35%;
+    width: 45%;
+    height: 55%;
+    background-color: #dadada;
+    text-align:center;
+    padding-top: 30px;
+}
+
+#rightarm {
+    position:absolute;
+    left:20%;
+}
+#leftarm {
+    position: absolute;
+    left: 70%;
+}
+
+hexadecimals: 0,1,2,3,4,5,6,7,8,9,a(10),b(11),c(12),d(13),e(14),f(15) |you can go to www.colorpicker.com|
+
+CSS Property				JavaScript Style Property
+-------------------------------------------------------------------
+background-color			backgroundColor
+border-radius				borderRadius
+font-family				fontFamily
+margin					margin
+font-size				fontSize
+border-width				borderWidth
+text-aligncolor				textAligncolor
 -------------------------------------------------------------------HTML--------------------------------------------------------------------------------
 
 HTML stands for Hypertext Markup Language
