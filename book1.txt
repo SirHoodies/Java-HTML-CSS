@@ -552,6 +552,71 @@ document.getElementById("thirdThing").innerHTML = item3;
 }
 //the update funtion finds each of the list items using their id attribute values. It then uses a meathod calles .innerHTML to change the value that is between the starting and ending tags of the list item to the values that the user entered by the user
 
+-----------------------------------------------------------------------------OPERANDS-----------------------------------------------------------------------------
+
+187 //number
+"007" //string
+"Number 9" //string
+true //boolean
+86 //number
+
+a number is just that, a number. no quotes and no letters, just numbers
+a string is anything surrounded by quotes
+a boolean is true or false
+
+192 is a number
+"192" is a string
+"true" is a sting
+true is a boolean
+
+you can assign numbers to letters like in real math
+_____________________________
+x = 2
+alert(x * 10)
+
+//this will give you an alert displaying 20
+_____________________________
+
+the typeof commang finds out the data type of a number 
+
+EX: 	typeof 8 	//'number'
+	typeof "car" 	//'string'
+	
+	we can also do this with variables
+		EX:	song1 = "Im" + "a" + "guy"
+			
+			typeof song1 //'string'
+			
+				Tip: we can also print variables if they are stings 
+						console.log(song1) //will print the string into the console
+						
+	if you were to do 
+		typeof car //'undefined'
+	it would come back as undefined because java treats words that are not a string as variables and since we dont have "car" defined as a variable, java cant
+	tell if it is a string or not
+	
+objects can have properties (things that describe them) and methods (things that they can do)
+
+to make an object:
+	var myObject = {};
+	
+each property or method of an object starts with a name followed by a colon followed by a value.
+if an object contatins more than one property or method, they are seperated by commas
+	
+	var dreamCar = {
+		make: "Mazda",
+		model: "Rx7",
+		color: "red",
+		year: 1978,
+		price: 100000
+	}
+	
+  
+alert ("The type of my dream car is " + typeof dreamCar); // this will give an alert saying "The type of my dream car is object"
+
+
+	
+
 
 
 
